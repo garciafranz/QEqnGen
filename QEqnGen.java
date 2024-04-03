@@ -1,5 +1,6 @@
-import java.security.SecureRandom;
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
+import java.security.SecureRandom;
 public class QEqnGen {
     private static final int LO = -99;
     private static final int HI = 99;
@@ -53,3 +54,4 @@ public class QEqnGen {
         System.out.println("(" + a + ", " + r + ", " + s + ")     " + eqn);
     }
 }
+
