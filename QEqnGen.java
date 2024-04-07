@@ -27,8 +27,8 @@ public class QEqnGen {
     public static String getRandomQuadratic() {
         int a, b, c, r, s;
         a = b = c = r = s = 1;
-        boolean different = true;
-        while(different) {
+        boolean rampant = true;
+        while(rampant) {
             a = boundedInt();
             if(50 < abs(a) || 2 > abs(a)) {
                 continue;
@@ -36,23 +36,18 @@ public class QEqnGen {
             r = boundedInt();
             s = boundedInt();
             c = a * r * s;
-            if(100 < abs(c) || 0 == c) {
+            if(HI < abs(c) || 0 == c) {
                 continue;
             }
             b = (-1) * r - s;
             b *= a;
-            if(0 == b) {
-                continue;
-            }
-            if(100 > abs(b)) {
-                different = false;
-            }
+            rampant = (0 == b || HI < abs(b));
         }
-        String eqn = (0 > a)? "-" : "";
+        String eqn = (0 < a)? "" : "-";
         eqn += ((1 == abs(a))? "" : abs(a));
-        eqn += "xx " + ((0 < b)? "- " : "+ ");
+        eqn += "xx " + ((0 < b)? "+ " : "- ");
         eqn += ((1 == abs(b))? "" : abs(b));
-        eqn += "x " + ((0 < c)? "- " : "+ ") + abs(c);
+        eqn += "x " + ((0 < c)? "+ " : "- ") + abs(c);
         return "(" + a + ", " + r + ", " + s + ")     " + eqn;
     }
     public static void main(String[] args) {
