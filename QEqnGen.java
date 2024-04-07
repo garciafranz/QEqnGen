@@ -22,7 +22,9 @@ public class QEqnGen {
     public static int abs(int n) {
         return (0 > n) ? n * -1 : n;
     }
-    public static void main(String[] args) {
+    /** Returns a quadratic equation and its solution similar to the form
+     *  (4, -2, 5)     4xx + 12x + 40                                     */
+    public static String getRandomQuadratic() {
         int a, b, c, r, s;
         a = b = c = r = s = 1;
         boolean different = true;
@@ -51,7 +53,11 @@ public class QEqnGen {
         eqn += "xx " + ((0 < b)? "- " : "+ ");
         eqn += ((1 == abs(b))? "" : abs(b));
         eqn += "x " + ((0 < c)? "- " : "+ ") + abs(c);
-        System.out.println("(" + a + ", " + r + ", " + s + ")     " + eqn);
+        return "(" + a + ", " + r + ", " + s + ")     " + eqn;
+    }
+    public static void main(String[] args) {
+    	QEqnGen generator = new QEqnGen();
+        System.out.println(generator.getRandomQuadratic());
     }
 }
 
