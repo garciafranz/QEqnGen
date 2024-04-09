@@ -4,8 +4,10 @@ import java.security.SecureRandom;
 public class QEqnGen {
     private static final int LO = -99;
     private static final int HI = 99;
+
+    private static SecureRandom rng = new SecureRandom();
+
     public static int boundedInt(int lo_inclusive, int hi_inclusive) {
-        var rng = new SecureRandom();
         if(lo_inclusive == hi_inclusive) {
             return lo_inclusive;
         }
