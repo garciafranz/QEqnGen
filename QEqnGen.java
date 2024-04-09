@@ -53,8 +53,7 @@ public class QEqnGen {
         return "(" + a + ", " + r + ", " + s + ")     " + eqn;
     }
     public static void main(String[] args) {
-    	QEqnGen generator = new QEqnGen();
-        System.out.println(generator.getRandomQuadratic());
+        System.out.println(QEqnGen.getRandomQuadratic());
     }
 }
 
