@@ -48,12 +48,19 @@ public class QEqnGen {
       b *= a;
       rampant = (0 == b || HI < abs(b));
     }
+    return getFormattedSolution(a, r, s) + "  " + getFormattedQuadratic(a, b, c);
+  }
+  
+  public static String getFormattedQuadratic(int a, int b, int c) {
     String eqn = (0 < a) ? "" : "-";
     eqn += ((1 == abs(a)) ? "" : abs(a));
     eqn += "xx " + ((0 < b) ? "+ " : "- ");
     eqn += ((1 == abs(b)) ? "" : abs(b));
-    eqn += "x " + ((0 < c) ? "+ " : "- ") + abs(c);
-    return "(" + a + ", " + r + ", " + s + ")     " + eqn;
+    return eqn + "x " + ((0 < c) ? "+ " : "- ") + abs(c);
+  }
+
+  public static String getFormattedSolution(int a, int r, int s) {
+    return "(" + a + ", " + r + ", " + s + ")";
   }
 
   public static void main(String[] args) {
